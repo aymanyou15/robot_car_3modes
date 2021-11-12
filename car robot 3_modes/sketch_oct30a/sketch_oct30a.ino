@@ -18,7 +18,7 @@
 
 #define ir_sensor A0
 
-// global varibles
+/************** global varibles *****************/
 long duration = 0;   // ultrsonic parameters
 int distance = 0;
 
@@ -31,7 +31,7 @@ char command;   // command received from bluetooth module
 int ir_value = 0;
 
 
-// functions decleration
+/********** functions decleration ***********/
 void led_initialize(void);
 void ultrasonic_initialize(void);
 void motor_initialize(void);
@@ -58,7 +58,7 @@ void loop() {
 
   button_value = digitalRead(push_button);
 
-  if (millis() - time_passed >= 150)
+  if (millis() - time_passed >= 150)      //debouncing push_button
   {
     time_passed = millis();
       if (button_value == HIGH && mode == 0)
